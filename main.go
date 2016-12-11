@@ -21,9 +21,9 @@ func main() {
 	serverCommand.IntVar(&port, "p", 5058, "Port to listen")
 	serverCommand.StringVar(&path, "d", "", "Directory to look for the executable scripts")
 
-	clientCommand.IntVar(&port, "p", 5058, "Port to listen")
+	clientCommand.IntVar(&port, "p", 5058, "Port of the server in the remote container")
 	clientCommand.StringVar(&script, "f", "", "Script to execute")
-	clientCommand.StringVar(&hostname, "h", "localhost", "Hostname of the remote server")
+	clientCommand.StringVar(&hostname, "h", "localhost", "Hostname of the remote container")
 
 	if len(os.Args) == 1 {
 		fmt.Println("usage: yodel <command> [<args>]")

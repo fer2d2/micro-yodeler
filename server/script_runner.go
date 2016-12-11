@@ -24,6 +24,8 @@ func NewScriptRunner(scriptsDirectoryPath string) ScriptRunner {
 }
 
 func (scriptRunner ScriptRunner) Execute(fileName string, result *command.Result) error {
+	fileName = path.Base(fileName) // Prevent traversal path attacks
+
 	stdOut, stdErr, exitCode := command.Run("sh", "-c", scriptRunner.Path+"/"+fileName)
 
 	result.StdOut = stdOut
