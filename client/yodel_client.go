@@ -12,6 +12,9 @@ import (
 
 func Run(port int, script string, hostname string) {
 	client, err := rpc.DialHTTP("tcp", hostname+":"+strconv.Itoa(port))
+
+	defer client.Close()
+
 	if err != nil {
 		log.Fatal("dialing: ", err)
 	}
