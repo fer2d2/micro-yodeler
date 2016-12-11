@@ -10,9 +10,11 @@ used in production environments**.
 
 ## How it works
 
-1. Create a directory in your target container with the executable scripts. Scripts must be executable and contain a *shebang* (like `#!/bin/bash` or `#!/usr/bin/env python`)
+1. Create a directory in your target container with your scripts. Scripts must be executable and contain a *shebang* (like `#!/bin/bash` or `#!/usr/bin/env python`)
 2. Run the server in your target container with `yodel server -d /your/scripts/directory -p 5058`
 3. Run the client in your source container with `yodel client -p 5058 -h container_hostname -f script_name.sh`
+
+The *yodel client* will return the script exit code, so it could be used in some automation tools like *rake* to simplify your tasks workflow.
 
 ### Command line flags
 ```
