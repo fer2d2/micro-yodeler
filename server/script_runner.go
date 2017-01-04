@@ -36,5 +36,5 @@ func (scriptRunner ScriptRunner) Execute(fileName string, result *command.Result
 
 // Prevent traversal path attacks
 func cleanFileName(fileName *string) {
-	*fileName = path.Base(fileName)
+	*fileName = path.Base(*fileName)
 }
